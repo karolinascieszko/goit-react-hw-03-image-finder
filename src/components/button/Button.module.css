@@ -1,0 +1,21 @@
+.Button {
+  cursor: pointer;
+  display: block;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-weight: 700;
+  border: none;
+  background-color: slateblue;
+  color: white;
+}
+
+.Button:hover,
+.Button:focus {
+  background-color: #303f9f;
+}

@@ -1,0 +1,57 @@
+.Searchbar {
+  background-color: #3f51b5;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.Form {
+  display: flex;
+}
+
+.FormInput {
+  border: none;
+  outline: none;
+  width: 400px;
+  height: 46px;
+  /* height: 40px; */
+  align-items: center;
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+}
+
+.FormButton {
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  background-color: #fff;
+  background-image: url("https://pic.onlinewebfonts.com/svg/img_548890.png");
+  background-size: 44%;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  outline: none;
+}
+
+.FormButton:hover {
+  opacity: 1;
+}
+
+.FormButtonLabel {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+  border: 0;
+}
+
+.FormInput::placeholder {
+  font-size: 16px;
+}
