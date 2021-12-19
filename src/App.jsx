@@ -19,6 +19,7 @@ class App extends Component {
     isLoading: false,
     isOpenModal: false,
     modalImage: "",
+    hideButton: false,
   };
 
  
@@ -29,8 +30,9 @@ class App extends Component {
     )
      .then((data) => data.json())
       .then((searchKeyword) => {
-        this.setState(({ images}) => ({
+        this.setState(({ images, hideButton}) => ({
           images: searchKeyword.hits,
+           hideButton: false,
       
         }));
       })
@@ -85,10 +87,10 @@ class App extends Component {
 
     try {
       const request = await fetchData(this.state.searchKeyword, this.state.page);
-      this.setState(({ images, page, showButton }) => ({
+      this.setState(({ images, page, hideButton }) => ({
         images: [...images, ...request],
         page: page + 1,
-        showButton: false,
+        hideButton: true,
       }));
 
       if (request.length === 0) {
@@ -130,8 +132,12 @@ class App extends Component {
         <ImageGallery images={this.state.images} openModal={this.openModal} />
         {this.state.isLoading && <LoaderFetch />}
         
-      
-        <Button loadMoreImages={this.loadMoreImages} />
+        {this.state.hideButton &&
+          !this.state.isLoading &&
+          this.state.images.length >= 12 &&
+          !this.state.error && (
+            <Button loadMoreImages={this.loadMoreImages} />
+          )}
         {this.state.isOpenModal === true ? (
           <Modal
             closeModal={this.closeModal}
